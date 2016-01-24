@@ -16,11 +16,28 @@
 using namespace std;
 
 
+void tester()
+{
+
+	int type = 1;
+	int pos = 0;
+	float mass = 0;
+
+	int a = generateResourses(type, pos, mass);
+
+
+	system("pause");
+}
+
 void main()
 {
+
 	//Skall skickas in till funktionen
 	int ID = 1;
 	srand(time(NULL));
+
+	tester();
+	return;
 
 	int *arr = generateSystem();
 

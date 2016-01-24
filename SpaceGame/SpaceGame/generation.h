@@ -8,6 +8,11 @@
 
 #include "NumberFunctions.h"
 
+#define TEN3 1000
+#define TEN6 (TEN3*TEN3)
+#define TEN9 (TEN6*TEN3)
+#define TEN12 (TEN6*TEN6)
+#define TEN24 (TEN12*TEN12)
 
 using namespace std;
 
@@ -117,12 +122,14 @@ float generateSystemObject(int obj)
 	if (obj == 1)
 	{
 		float sta[12];
-		sta[0] =
-			sta[0] = (rand() % 1000 + 1) / 100; //ger massa
-												//atmosphere
-
+		sta[0] = (rand() % 1000 + 1) / 100; //ger massa
+		sta[0] = sta[0] * (5.97237 * TEN24);	//definerar den efter jorden
+		sta[1] = 0.0001 * sta[0];	//
+		sta[0] = sta[0] - sta[1];
+		sta[2] = planetrot();
+		sta malloc
 	}
-	return 0;
+	return ;
 }
 
 //Generate resourses, 1 = Stone Planet, 2 = Gas Planet, 3 = Asteroid, 4 = Moon
@@ -140,9 +147,9 @@ int generateResourses(int type, int pos, float mass)
 
 	//Stone PLanets
 	if (type == 1) {
-		res[0] = 900000000 * (rand() % 1 + 0.5);
-		res[1] = 100000000 * (rand() % 1 + 0.5);
-		res[2] = 50000 * (rand() % 20 - 10);
+		res[0] = 9000000 * (rand() % 1 + 0.5);
+		res[1] = 1000000 * (rand() % 1 + 0.5);
+		res[2] = 500 * (rand() % 20 - 10);
 		if (res[2] < 0)
 			res[2] = 0;
 	}
@@ -154,11 +161,23 @@ int generateResourses(int type, int pos, float mass)
 
 	//Asteroids
 	else if (type == 3) {
-
+		if (pos <= 10) {
+			res[0] = 800 * (rand() % 1 + 0.5);
+			res[1] = 100 * (rand() % 1 + 0.5);
+			res[2] = 100 * (rand() % 12 - 10);
+			if (res[2] < 0)
+				res[2] = 0;
+		}else{
+			res[0] = 900 * (rand() % 1 + 0.5);
+			res[1] = 100 * (rand() % 1 + 0.5);
+			res[2] = 500 * (rand() % 1 + 0.5);
+		}
 	}
 
 	//Moons
 	else if (type == 4) {
+		int moontype = (rand() % 2 + 1);
+
 
 	}
 
