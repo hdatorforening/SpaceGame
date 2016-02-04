@@ -11,7 +11,17 @@
 #include <string>
 
 
+#define TEN3 1000
+#define TEN6 (TEN3*TEN3)
+#define TEN9 (TEN6*TEN3)
+#define TEN12 (TEN6*TEN6)
+#define TEN15 (TEN12*TEN3)
+#define TEN18 (TEN12*TEN6)
+#define TEN21 (TEN12*TEN9)
+#define TEN24 (TEN12*TEN12)
+
 #include "generation.h"
+
 
 using namespace std;
 
@@ -25,7 +35,7 @@ void tester()
 
 	int a = generateResourses(type, pos, mass);
 
-
+	
 	system("pause");
 }
 
@@ -34,23 +44,24 @@ void main()
 
 	//Skall skickas in till funktionen
 	int ID = 1;
+	
 	srand(time(NULL));
 
-	tester();
-	return;
-
+	//tester();
+	int i = 0;
+	
+	//int *abb = teasing();
+	i = 0;
 	int *arr = generateSystem();
-
-	/*int i = 0;
-	while (i < 1) {
-		cout << arr[1];
+	while (i < 30) {
+		cout << arr[i] <<" ";
 		i++;
-	}*/
-	cout << "\n" << arr[2];
-	cout << "\n" << arr[3];
-	cout << "\n" << arr[2];
-	cout << "\n" << arr[3] << "\n";
-
+	}
+	//cout << "\n" << arr[2];
+	//cout << "\n" << arr[3];
+	//cout << "\n" << arr[2];
+	//cout << "\n" << arr[3] << "\n";
+	cout << "\n";
 	system("pause");
 }
 
